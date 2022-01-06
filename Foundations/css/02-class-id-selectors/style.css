@@ -1,0 +1,18 @@
+.odd-class {
+    background-color: pink;
+    font-family: Verdana, sans-serif;
+}
+
+#number-2{
+    color: blue; 
+    font-size: 36px;
+}
+
+.lg-font {
+    font-size: 24px;
+}
+
+#number-4 {
+    font-weight: bold;
+    background-color: lightgreen;
+}

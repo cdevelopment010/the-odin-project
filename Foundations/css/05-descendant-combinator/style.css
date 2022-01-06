@@ -1,0 +1,28 @@
+/* Using tag and class */
+
+/* div .text {
+    background-color: yellow; 
+    color: red; 
+    font-size: 20px; 
+    text-align: center;
+} */
+
+
+/* using tag and tag */
+/* div p {
+    background-color: yellow; 
+    color: red; 
+    font-size: 20px; 
+    text-align: center;
+
+} */
+
+
+/* using class and class */
+.container .text {
+    background-color: yellow; 
+    color: red; 
+    font-size: 20px; 
+    text-align: center;
+
+}
