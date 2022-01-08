@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAYOUT</title>
+  <link rel="stylesheet" href="./style.css">
+
+
+
+  <!-- Checking if their styles work on smaller screen -->
+  <!-- It does not!  -->
+
+  <!-- <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        font-family: Roboto, sans-serif;
+        }
+
+        img {
+        width: 600px;
+        }
+
+        button {
+        font-family: Roboto, sans-serif;
+        border: none;
+        border-radius: 8px;
+        background: #eee;
+        }
+
+        input {
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        padding: 8px 24px;
+        width: 400px;
+        margin-bottom: 16px;
+        }
+
+        /* SOLUTION */
+
+        body {
+        display: flex;
+        flex-direction: column;
+        }
+
+        button {
+        padding: 8px 16px;
+        }
+
+        .content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        }
+
+        a {
+        color: #666;
+        text-decoration: none;
+        }
+
+        .header,
+        .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+        }
+
+        .footer {
+        background: #eee;
+        }
+
+        ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 16px
+        }
+  </style> -->
+</head>
+<body>
+  <div class="header">
+    <ul class="left-links">
+      <li><a href="google.com">About</a></li>
+      <li><a href="google.com">Store</a></li>
+    </ul>
+    <ul class="right-links">
+      <li><a href="google.com">Profile</a></li>
+      <li><a href="google.com">Settings</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <img src="https://raw.githubusercontent.com/TheOdinProject/css-exercises/main/flex/06-flex-layout/logo.png" alt="">
+    <div class="input">
+      <input type="text">
+    </div>
+    <div class="buttons">
+      <button>Do the thing!</button>
+      <button>Do the other thing!</button>
+    </div>
+  </div>
+  <div class="footer">
+    <ul class="left-links">
+      <li><a href="google.com">Advertising</a></li>
+      <li><a href="google.com">Business</a></li>
+    </ul>
+    <ul class="right-links">
+      <li><a href="google.com">Privacy</a></li>
+      <li><a href="google.com">Terms</a></li>
+    </ul>
+  </div>
+</body>
+</html>

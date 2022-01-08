@@ -1,0 +1,244 @@
+$dark-bg: #1F2937; 
+$btn-col: #3882F6;
+$light-col: #E5E7EB; 
+
+
+* {
+    margin: 0; 
+    padding: 0; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body>* {
+    flex: 0 0 auto; 
+}
+
+li {
+    list-style-type: none;
+}
+
+header {
+    display: flex; 
+    justify-content: space-between;
+    background-color: $dark-bg;
+    color: $light-col; 
+    font-size: 18px; 
+    padding: 24px 10vw; 
+
+    .logo {
+        color: #f9faf8;
+        font-size: 24px; 
+        font-weight: bold; 
+    }
+
+    ul {
+        display: flex; 
+        gap: 16px; 
+    }
+}
+
+.padding {
+    padding: 16px 20vw;
+}
+.flex {
+    display: flex;
+}
+
+.flex > * {
+    flex: 1 1 0; 
+}
+main {
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 1;
+    // gap: 50px;
+}
+
+
+button {
+    background-color: $btn-col; 
+    color: white; 
+    padding: 8px 24px; 
+    border: none; 
+    border-radius: 10px; 
+}
+
+
+section {
+    // height: 100%; 
+    flex: 1 1 0; 
+    margin: 25px 0;
+}
+
+.hero {
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    background-color: $dark-bg;
+    min-height: 40vh;
+    margin-top: 0;
+    height: 100%;
+    
+    .text-area {
+        flex: 1;
+
+        h1 {
+            font-size: 48px; 
+            font-weight: 900;
+            color: #f9faf8; 
+        }
+        p {
+            font-size: 18px; 
+            color: $light-col;
+            margin: 16px 0; 
+        }
+    }
+    .img {
+        flex: 1;
+        max-height: 250px;
+        // max-width: 350px;
+        width: 100%;
+        height: 100%; 
+        background-color: $light-col;
+    }
+}
+
+
+.info {
+    text-align: center; 
+    h2 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: 900;
+        color: #1F2937; 
+    }
+    .flex {
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .square {
+            margin: 0 auto;
+            height: 150px; 
+            width: 150px; 
+            border: $btn-col 3px solid; 
+            border-radius: 10px;
+        }
+    }
+}
+
+.quote {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E7EB;
+    padding: 10vh 20vh;
+    
+
+    blockquote {
+        // width: 70%;
+        font-size: 36px;
+        font-weight: lighter;
+        font-style: italic;
+        color: #1F2937;
+    }
+    span {
+        width: 70%;
+        align-self: flex-end;
+        font-weight: 900; 
+        color: #1F2937;
+        text-align: right;
+    }
+}
+
+
+.cta-section {
+    margin: 10vh 15vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .flex {
+        padding: 25px 100px;
+        background-color: $btn-col;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        color: $light-col;
+        max-width: 800px;
+    }
+    
+    button {
+        border: 1px solid white;
+    }
+    .left {
+        flex: 4; 
+    }
+    .right {
+        flex: 1;
+    }
+}
+
+footer {
+    text-align: center;
+    background-color: $dark-bg;
+    height: 10vh; 
+    color: $light-col; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+// media query for mobile
+// should really design for mobile first - a lot harder this way!
+
+@media screen and (max-width: 768px){
+    .hero {
+        flex-direction: column-reverse;
+        height: auto;
+        flex: 1 1 auto;
+
+        .img {
+            height: 200px;
+            width: 200px;
+            flex-basis: auto;
+        }
+    }
+
+    .info {
+        .flex {
+            flex-wrap: wrap;
+        }
+    }
+
+    .quote {
+
+        padding: 20px;
+        blockquote {
+            font-size: 1.2rem;
+        }
+    }
+
+    .cta-section {
+        .flex {
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+        }
+
+    }
+    
+}
