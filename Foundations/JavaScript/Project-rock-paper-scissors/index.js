@@ -1,5 +1,16 @@
-// Default player value
-const playerSelection = 'ROCK'; 
+const btnRock = document.getElementById('rock'); 
+const btnPaper = document.getElementById('paper'); 
+const btnScissors = document.getElementById('scissors'); 
+const playerScore = document.getElementById('player-score');
+const computerScore = document.getElementById('computer-score');
+const winner = document.getElementById('winner'); 
+const roundResult = document.getElementById('round-result'); 
+const resetBtn = document.getElementById('reset-btn');
+
+btnRock.addEventListener('click', playRound); 
+btnPaper.addEventListener('click', playRound); 
+btnScissors.addEventListener('click', playRound); 
+
 
 // Computer function for the computer to randomly select rock, paper or scissors 
 function computerSelection() {
@@ -9,15 +20,13 @@ function computerSelection() {
 
 
 // Play round which checks who has won
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    roundResult.innerText = '';
     let arr = ['Rock', 'Paper', 'Scissors']; 
     let computer = computerSelection(); 
     // let player = playerSelection; 
 
-
-    // Use prompt to get the user input
-    let player = prompt(`Choose your weapon - Rock, Paper or Scissors?`);
-
+    let player = this.innerText; 
     //check case of player selection
     player = player[0].toUpperCase() + player.slice(1).toLowerCase();
     
@@ -36,54 +45,52 @@ function playRound(playerSelection, computerSelection) {
 
     // Check who has won
     if (player === computer) {
-        return `It's a draw! ${player} draws with ${computer}`
+        roundResult.innerText = `It's a draw! ${player} draws with ${computer}`;
+        return `It's a draw! ${player} draws with ${computer}`;
     }
 
     for (let win of winArray) {
         if (player == win[0] && computer ==win[1]){
-            return `You win! ${player} beats ${computer}`
+            playerScore.children[0].innerText++; 
+            roundResult.innerText = `Player wins the round - ${player} beats ${computer}`;
+            checkWinner(); 
+            return; 
         }
     }
-    return `You lose! ${computer} beats ${player}`;
+    
+    computerScore.children[0].innerText++; 
+    roundResult.innerText = `Computer wins the round - ${computer} beats ${player} `;
+    checkWinner(); 
 
 }
 
+function checkWinner() {
+    if (playerScore.children[0].innerText == 5 || computerScore.children[0].innerText == 5) {
+        resetBtn.classList.toggle('hidden'); 
+        winner.classList.toggle('hidden'); 
+        btnRock.removeEventListener('click', playRound); 
+        btnPaper.removeEventListener('click', playRound);
+        btnScissors.removeEventListener('click', playRound); 
 
-
-// function game
-//This is a best of 5 game that uses the playRound function
-    //Print result from each round
-    //Declare the winner at the end
-
-function game() {
-    let count = 0; 
-    let playerVictory = 0;
-    let computerVictory = 0; 
-
-    while (count <= 4) {
-
-        console.log(`Game number ${count}`);
-        let result = playRound(playerSelection, computerSelection); 
-        console.log(result); 
-
-        if (result == 'Please try again.') {
-            continue;
+        if (computerScore.children[0].innerText == 5) {
+            winner.innerText = `Computer wins! Better luck next time.`;
+        } else {
+            winner.innerText = `You win! Congrats! Rematch?`; 
         }
+    } 
 
-        if (result.indexOf('You win!')!= -1) {
-            playerVictory++; 
-
-        } else if (result.indexOf('You lose!')!= -1) {
-            computerVictory++
-        } 
-
-        console.log(`Player: ${playerVictory} \nComputer: ${computerVictory}`);
-
-        count++; 
-        // first to 3 wins
-        if (computerVictory >= 3 || playerVictory >= 3) {
-            break; 
-        }
-    }
-    return `Player wins ${playerVictory} games and computer wins ${computerVictory} games.`
 }
+
+resetBtn.addEventListener('click', function() {
+    computerScore.children[0].innerText = 0; 
+    playerScore.children[0].innerText = 0; 
+    winner.innerHTML = ''; 
+    roundResult.innerText = '';
+
+    resetBtn.classList.toggle('hidden'); 
+    winner.classList.toggle('hidden'); 
+
+    btnRock.addEventListener('click', playRound); 
+    btnPaper.addEventListener('click', playRound); 
+    btnScissors.addEventListener('click', playRound); 
+})

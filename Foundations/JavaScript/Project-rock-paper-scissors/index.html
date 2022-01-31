@@ -5,13 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP | JS Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/48e9ba994a.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <h1>Rock Paper Scissors!</h1>
+    <h3>First to 5 wins</h3>
 
-    <p> use the console to start the game using <code>game();</code></p>
+    <div id="round-result">
 
+    </div>
+    <div class="buttons">
+        <i class="fas fa-hand-rock fa-5x" id="rock"><span>Rock</span></i>
+        <i class="fas fa-hand-paper fa-5x" id="paper"><span>Paper</span></i>
+        <i class="fas fa-hand-scissors fa-5x" id="scissors"><span>Scissors</span></i>
+    </div>
+
+    <div class="score">
+        <div id="player-score">
+            Player: <span>0</span>
+        </div>
+        <div id="computer-score">
+            Computer: <span>0</span>
+        </div>
+    </div>
+
+    <div class="winner hidden" id="winner">
+
+    </div>
+    <button id="reset-btn" class="hidden">Reset</button>
 
     <script src="./index.js"></script>
 </body>
