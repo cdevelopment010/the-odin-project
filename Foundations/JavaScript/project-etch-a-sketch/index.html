@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <h1>Etch-a-sketch</h1>
+    <p>Hold alt and hover over the squares to color. For touch devices, simple touch and drag. </p>
+    
+    
+    <div class="controls">
+        <button id="clear-btn">Clear</button>
+        <label for="myRange">
+            0
+            <input type="range" min="1" max="100" value="16" class="slider" name="myRange" id="myRange">
+            100
+        </label>
+        <div id="current-slider-value"></div>
+        <label for="colours">
+            Select color option
+            <select name="colours" id="color-options">
+                <option value="black">Black</option>
+                <option value="rainbow">Rainbow</option>
+                <option value="erase">Erase</option>
+            </select>
+        </label>
+
+    </div>
+
+
+
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+</html>
