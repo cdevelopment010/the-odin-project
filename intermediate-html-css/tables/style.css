@@ -39,10 +39,10 @@ caption {
   border-right:  2px solid black;
 }
 
-th.name {
-  border-top:  2px solid black;
+tbody tr:last-of-type th.name {
+  border-bottom: 2px solid black;
 }
 
-tr:last-of-type>td.name {
-  border-bottom: 2px solid black;
+thead th.name {
+  border-top: 2px solid black;
 }
