@@ -132,6 +132,20 @@ a {
     color: var(--primary-col); 
 }
 
+[for="password"] {
+    position: relative; 
+}
+
+[for="password"]:after {
+    position: absolute;
+    content: '* Passwords do not match'; 
+    bottom: -15px;  
+    font-size: 0.6rem;
+    font-family: 'Roboto', sans-serif; 
+    color: var(--error-col); 
+    letter-spacing: normal;
+}
+
 
 @media screen and (min-width: 48em) {
     main {
