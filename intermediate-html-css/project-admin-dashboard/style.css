@@ -72,16 +72,33 @@ li {
 }
 
 .header {
-    padding: 20px 30px; 
+    padding: 20px 50px; 
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+    display: grid; 
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; 
 }
 
-.search-area {
-    display: grid; 
-    gap: 20px; 
-    grid-template-columns: auto 1fr auto auto auto;
-    margin-bottom: 20px;
+.header-left {
+    grid-column: 1 / 2; 
+}
+
+.header-right {
+    grid-column: 2 / 3;
+}
+
+.grid {
+    display: grid;
+    grid-auto-columns:max-content;
+    grid-auto-flow: column;
+    gap: 10px; 
     align-items: center;
+}
+
+.align-left {
+    justify-self: end; 
 }
 
 .search-bar {
