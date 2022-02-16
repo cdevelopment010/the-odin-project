@@ -1,0 +1,242 @@
+:root {
+    --dark-col-primary: #004346;
+    --dark-col-primary-rgb: 0,67,70;
+    --dark-col-secondary: #5E4955;
+    --primary-col: #AEADF0; 
+    --primary-col-light: #D8DCFF; 
+    --accent-col: #F7717D;  
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+
+main {
+    display: grid; 
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: min-content 8fr;
+
+    height: 100%; 
+    width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+.sidebar {
+    grid-area: 1 / 1 / 3 / 2;
+    background-color: var(--dark-col-primary);
+
+    color: white; 
+    padding: 1rem; 
+
+    display: grid; 
+    gap: 40px; 
+    grid-template-rows: repeat(3,min-content);
+    font-size: 1.3rem;
+
+}
+
+.logo {
+    font-family: 'Modak', cursive;
+    letter-spacing: 3px;
+    font-size: 2.1rem; 
+}
+
+.sidebar li {
+    width: 100%; 
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    color: var(--primary-col); 
+}
+
+.sidebar ul i {
+    margin-right: 20px; 
+}
+
+.sidebar ul {
+    display: grid; 
+    gap: 5px; 
+}
+
+.header {
+    padding: 20px 30px; 
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+}
+
+.search-area {
+    display: grid; 
+    gap: 20px; 
+    grid-template-columns: auto 1fr auto auto auto;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.search-bar {
+    background-color: var(--primary-col-light); 
+    border: none; 
+    border-radius: 10px; 
+    outline: none; 
+    width: 80%;
+    text-align: right; 
+    padding: 3px; 
+
+}
+.search-bar:focus, 
+.search-bar:active {
+    border: 1px solid var(--dark-col-primary)
+}
+
+.action-area {
+    display: grid; 
+    gap: 20px; 
+    grid-template-columns: auto 1fr auto auto auto;
+}
+
+.btn {
+    padding: 5px 25px; 
+    border: none; 
+    background-color: var(--primary-col); 
+    border-radius: 20px; 
+    color: white;
+    cursor: pointer; 
+}
+.btn:hover {
+    background-color: var(--dark-col-primary);
+}
+
+.user-name {
+    font-size: 1.5rem; 
+}
+
+
+.body {
+    background-color: rgba(var(--dark-col-primary-rgb), 0.2);
+    padding: 30px; 
+    display: grid; 
+    grid-template-columns: 3fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 20px; 
+
+}
+
+.projects {
+    grid-area: 1 / 1 / 3 / 2; 
+
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; 
+    grid-template-rows: 50px;
+    grid-auto-rows: 250px;
+}
+.projects h2 {
+    grid-column: 1 / -1;
+}
+.card {
+    background-color: white; 
+    display: grid; 
+    grid-template-columns: 20px 1fr; 
+    border-radius: 10px; 
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.bg-card {
+    background-color: var(--primary-col);
+    position: relative; 
+}
+.bg-card::before {
+    background-color: var(--accent-col);
+    content:'';
+    position: absolute; 
+    top: -100%; 
+    height: 100%; 
+    width: 100%; 
+    transition: 0.2s; 
+
+}
+.main-card {
+    margin: 20px; 
+    display: grid; 
+    grid-template-rows: auto 1fr auto;
+    gap: 15px; 
+}
+
+.icons {
+    justify-self: end; 
+    display: grid; 
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px; 
+}
+
+.icons>*:hover {
+    color: var(--accent-col)
+}
+
+.card:hover .bg-card::before{
+    top: 0; 
+}
+.card:hover .main-card h4 {
+    text-shadow: 2px 2px var(--primary-col-light)
+}
+
+.announcements, .trending {
+    display: grid; 
+    gap: 20px; 
+    grid-template-rows: 50px; 
+    grid-auto-rows: 1fr; 
+}
+
+.announcements p {
+    font-size: 0.8rem; 
+    margin-top: 5px; 
+    padding: 0 5px; 
+}
+
+.card-announcement, .card-trending {
+    border-radius: 10px; 
+    background-color: white; 
+    padding: 20px; 
+}
+
+.card-announcement hr {
+    margin: 10px; 
+    border-color: var(--primary-col);
+}
+.card-trending {
+    display: grid; 
+    justify-content: space-between;
+}
+
+.trend {
+    display: grid; 
+    grid-template-columns: 1fr 2fr; 
+    gap: 5px; 
+}
+
+
+.card-trending :nth-child(1) i {
+    color: var(--primary-col-light); 
+}
+.card-trending :nth-child(2) i {
+    color: var(--dark-col-secondary); 
+}
+.card-trending :nth-child(3) i {
+    color: var(--accent-col); 
+}
+.card-trending :nth-child(4) i {
+    
+    color: var(--primary-col); 
+}
