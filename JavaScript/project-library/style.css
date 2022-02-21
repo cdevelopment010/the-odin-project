@@ -38,7 +38,7 @@ th {
     vertical-align: bottom;
 }
 
-button {
+button, input[type='submit'] {
     padding: 3px 25px;
     cursor: pointer;
     border: 1px transparent solid; 

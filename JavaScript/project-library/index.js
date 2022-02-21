@@ -78,7 +78,9 @@ function displayBooks() {
 // New book button that brings up a form
 // Need: author, title, number of pages, if it has been read, and anything else you want
 
-function addBook() {
+function addBook(event) {
+
+    event.preventDefault(); 
 
     if (modal.querySelector('form').checkValidity()) {
         console.log('passed')
@@ -87,19 +89,18 @@ function addBook() {
         const pages = Number(modal.querySelector('#pages').value);
         const read = modal.querySelector('#read').value; 
         const newBook = new Book(author, title, pages, read); 
-    
+        
         addBookToLibrary(newBook); 
         if (!modal.classList.contains('hidden')) {
             closeForm();
         } 
     } else {
         console.log('failed!'); 
-        // if (modal.querySelector('#author').value === '') {
-        //     modal.querySelector('#author').classList.add('error'); 
-        // }
+        modal.querySelector('#pages').reportValidity();
+        modal.querySelector('#title').reportValidity();
+        modal.querySelector('#author').reportValidity();
     }
-
-}
+    }
 
 
 // Add a button on each book's display to remove the book
@@ -127,6 +128,9 @@ function updateStatus() {
 function openForm() {
     modal.classList.toggle('hidden');
     overlay.classList.toggle('hidden');
+    modal.querySelector('#author').required = true; 
+    modal.querySelector('#title').required = true; 
+    modal.querySelector('#pages').required = true; 
 
 }
 
@@ -134,6 +138,12 @@ function closeForm() {
     modal.querySelector('#author').value = '';
     modal.querySelector('#title').value = '';
     modal.querySelector('#pages').value = '';
+
+    modal.querySelector('#author').required = false; 
+    modal.querySelector('#title').required = false; 
+    modal.querySelector('#pages').required = false; 
+
+
     modal.classList.toggle('hidden');
     overlay.classList.toggle('hidden');
 }
