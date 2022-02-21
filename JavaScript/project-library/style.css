@@ -1,0 +1,231 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #f1e9d8;
+
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td, th {
+    border-bottom: 1px dashed black;
+    text-align: start;
+    width: 15%; 
+    padding: 5px; 
+}
+
+td:nth-child(3) {
+    text-align: center;
+}
+
+th {
+    border-bottom: 4px double black;
+    vertical-align: bottom;
+}
+
+button {
+    padding: 3px 25px;
+    cursor: pointer;
+    border: 1px transparent solid; 
+    border-radius: 2px; 
+}
+
+.container {
+    width: 80%; 
+    height: 80%; 
+    position: relative; 
+
+}
+
+.book-cover {
+    position: absolute; 
+    content: ''; 
+    top: -2.5%;
+    left: -2.5%; 
+    z-index: -5; 
+    background-color: rgba(112, 8, 0);
+    height: 105%; 
+    width: 105%; 
+    border-radius: 20px; 
+}
+
+.page {
+    position: absolute; 
+    content: ''; 
+    border-radius: 20px; 
+}
+.page1 {
+    background-color: #d6c5a3;
+    height: 101%; 
+    width: 101%;
+    top: -0.5%;
+    left: -0.5%; 
+    z-index: -2; 
+}
+.page2 {
+    background-color: #afa48e;
+    height: 102%; 
+    width: 102%;
+    top: -1%;
+    left: -1%; 
+    z-index: -3; 
+}
+.page3 {
+    background-color: #867e6c;
+    height: 103%; 
+    width: 103%;
+    top: -1.5%;
+    left: -1.5%; 
+    z-index: -4; 
+}
+.book {
+    height: 100%; 
+    display: grid; 
+    margin: 0 auto; 
+    grid-template-columns: 1fr 1fr;
+    /* border: 1px solid black; */
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: 0 0 2px #d6c5a3,
+             0 0 4px #afa48e, 
+             0 0 4px #867e6c;   
+}
+
+.first-page, .second-page {
+    padding: 10px; 
+    background-color: #f2dcb1; 
+    overflow:auto; 
+}
+
+.first-page {
+    border-right: 1px dashed gray; 
+    box-shadow: inset -10px 0 8px -2px #d6c5a3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+
+}
+.second-page {
+    box-shadow: inset 10px 0 8px -2px #d6c5a3;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.info {
+    display: grid; 
+    gap: 10px; 
+    padding-left: 25px; 
+}
+
+.first-page button {
+    align-self: flex-start;
+    margin-left: 25px; 
+    
+
+}
+
+.first-page button:hover {
+    background-color: rgba(112, 8, 0);
+    color: white; 
+} 
+
+.modal {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    position: fixed;
+    max-height: 50%;
+    width: 50%;  
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    padding: 25px;
+    border-radius: 20px; 
+    z-index: 101; 
+    background-color: white;
+    /* gap: 10px; */
+
+}
+
+.modal form {
+    display: grid; 
+    gap: 5px; 
+    grid-template-columns: 1fr 1fr;
+    align-content: center; 
+}
+
+.modal label {
+    display: grid;
+    height: auto; 
+    grid-template-columns: 1fr 3fr; 
+    justify-content: space-between;
+    grid-column: span 2; 
+}
+
+.modal h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#add-book {
+    background-color: rgb(102, 219, 102);
+}
+#add-book:hover {
+    background-color: rgb(39, 109, 39);
+    color: white; 
+}
+#cancel-book {
+    background-color: rgb(214, 55, 77);
+}
+#cancel-book:hover {
+    background-color: rgb(138, 25, 40);
+    color: white; 
+}
+
+
+.error {
+    border: 1px solid red;
+}
+
+.overlay {
+    z-index: 100; 
+    height: 100vw; 
+    width: 100vw; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    backdrop-filter: blur(2px);
+}
+
+.hidden {
+    display: none; 
+}
+
+.fa-trash-can, .fa-pen {
+    cursor: pointer;
+}
+.fa-trash-can:hover {
+    color: red; 
+}
+.fa-pen:hover {
+    color: rgb(79, 79, 224); 
+}
