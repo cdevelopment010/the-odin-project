@@ -1,0 +1,85 @@
+* {
+    margin: 0; 
+    padding: 0; 
+
+}
+
+.slider-container {
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.disc-container {
+    position: absolute; 
+    bottom: 20px; 
+    left: 50%;
+    display: flex;  
+    gap: 10px; 
+    z-index: 900; 
+}
+
+.disc {
+    height: 20px; 
+    width: 20px; 
+    border-radius: 50%;
+    background-color: white;
+    position: relative; 
+    cursor: pointer;
+}
+
+.disc.active::after {
+    position: absolute;
+    content: ''; 
+    height: 80%; 
+    width: 80%; 
+    background-color: black;
+    border-radius: 50%;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+.left-arrow, .right-arrow {
+    position: absolute;
+    top: 50%; 
+    font-size: 2em;
+    color: white; 
+    z-index: 1000; 
+    cursor: pointer;
+}
+.left-arrow {
+    left: 10%; 
+}
+.right-arrow {
+    right: 10%;
+}
+
+.slider {
+    position: absolute;
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    transition: 1s;
+}
+.slider.left {
+    left: -100%; 
+    right: 100%; 
+    z-index: -10;
+}
+.slider.right {
+    right: -100%; 
+    left: 100%; 
+    z-index: -5;
+}
+.slider.active {
+    z-index: 500; 
+}
+
+img {
+    height: 100%; 
+    width: 100%;
+}
