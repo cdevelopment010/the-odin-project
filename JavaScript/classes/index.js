@@ -136,18 +136,20 @@ class Person {
 
     // static - doesn't belong to instance but to the class
     //can't call it on an instance (person1)
-    // static species() {
-    //     return 'Homo sapiens';
-    // }
+    
+    // adding get method so it can be called without (); 
+    static get species() {
+        return 'Homo sapiens';
+    }
 
     // changed from a method to a property; 
     // not fully supported - static properties
     // Need to use Babel to get around this
-    static species = 'Homo sapiens'; 
+    // static species = 'Homo sapiens'; 
 
     //this in static methods refer to the class
     static speciesSentence() {
-        return `Humans are classified as ${this.species()}`
+        return `Humans are classified as ${this.species}` //remove () because changed species to a getter
     }
 
 
@@ -166,11 +168,52 @@ class Person {
     setLastName(lastName) {
         this.lastName = lastName
     }
+
+    // setter 
+    set setFullName(name) {
+        name = name.split(' '); 
+        this.setFirstName(name[0]); 
+        this.setLastName(name[1]); 
+    }
+}
+
+
+//extends
+//inherit everything from Person
+//borrow methods and properties, but can override as well
+class Worker extends Person {
+    constructor(firstName, lastName, job) {
+        //super = call the method from the class it extends from
+        //call the constructor method of the person
+        super(firstName, lastName); 
+        this.job = job; 
+        // overwrote the hasJob from Person class
+        this.hasJob = true; 
+    }
+
+    setJob(job) {
+        this.job = job
+    }
+
+
+
+
+    // Getters
+    // convert methods into a propert
+    // Add get in front of the method, then call without () 
+    get biography() {
+        const bio = `${this.fullName()} is a ${this.job}.`.toUpperCase(); 
+        return bio; 
+    }
 }
 
 const person1 = new Person('Craig', 'Davison'); 
-console.log(person1.fullName());  
 console.log(person1.species);  //ERROR
 // console.log(Person.species())
-console.log(Person.species); 
-console.log(Person.speciesSentence())
+// console.log(Person.species); 
+// console.log(Person.speciesSentence())
+
+const worker1 = new Worker('Craig', 'Davison', 'YT Star'); 
+console.log(worker1); 
+// getter
+// console.log(worker1.biography)
